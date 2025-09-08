@@ -8,18 +8,20 @@
     <script>
 		let msg = document.createElement('div');
 		msg.style.textAlign = 'center';
-		document.body.appendChild(msg);
 		msg.innerText = '画面をタップorクリックしてコピー';
+		document.body.appendChild(msg);
 		document.addEventListener('click',copy);
 		document.addEventListener('keydown',copy);
 		document.addEventListener('touchstart',copy);
 		function copy(){
 		    const params = new URLSearchParams(window.location.search);
 		    const text = params.get('s');
+		    const url = params.get('u');
 		    const anchor = params.get('a');
 		    navigator.clipboard.writeText(text).then(() => {
 				msg.innerText = 'コピーが成功しました';
-		        if (document.referrer) {window.location.href = document.referrer + (anchor ? `#${anchor}` : '');}
+				if (url) {window.location.href = url + (anchor ? `#${anchor}` : '');}
+		        else if (document.referrer) {window.location.href = document.referrer + (anchor ? `#${anchor}` : '');}
 				else {window.location.href = 'https://memo.zu-ga.net';
 				}
 		    }) .catch(err => {console.error("正常にコピーできませんでした。",err);
