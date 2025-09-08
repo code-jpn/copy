@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>コピーが完了しました</title>
+</head>
+<body>
+  <div></div>
+  <script>
+    const strings = new URLSearchParams(window.location.search);
+    const text = params.get('s');
+    const anchor = params.get('a');
+    navigator.clipboard.writeText(textToCopy);
+    if (document.referrer) {
+      window.location.href = document.referrer + '#' + anchor;
+    } else {
+      console.log('トップページ(仮)に戻ります。')
+      //window.location.href = '/';
+    }
+  </script>
+</body>
+</html>
