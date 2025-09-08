@@ -7,7 +7,8 @@
 <body>
     <script>
 		let msg = document.createElement('center');
-		msg.innerText = '画面をタップorクリックしてコピー'
+		document.body.appendChild('msg');
+		msg.innerText = '画面をタップorクリックしてコピー';
 		document.addEventListener('click',copy);
 		document.addEventListener('keydown',copy);
 		document.addEventListener('touchstart',copy);
