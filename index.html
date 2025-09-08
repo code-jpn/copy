@@ -7,16 +7,30 @@
 <body>
   <div></div>
   <script>
-    const strings = new URLSearchParams(window.location.search);
-    const text = params.get('s');
-    const anchor = params.get('a');
-    navigator.clipboard.writeText(textToCopy);
-    if (document.referrer) {
-      window.location.href = document.referrer + '#' + anchor;
-    } else {
-      console.log('トップページ(仮)に戻ります。')
-      //window.location.href = '/';
-    }
+// URLパラメータを取得
+const params = new URLSearchParams(window.location.search);
+const text = params.get('s');     // コピーするテキスト
+const anchor = params.get('a');   // リダイレクト先のアンカー
+
+// クリップボードにテキストをコピー
+if (text) {
+  navigator.clipboard.writeText(text).then(() => {
+    console.log('テキストをコピーしました:', text);
+  }).catch(err => {
+    console.error('コピーに失敗しました:', err);
+  });
+} else {
+  console.warn('コピーするテキストが見つかりません。');
+}
+
+// リファラーがある場合はそのページに戻り、アンカーを付加
+if (document.referrer) {
+  window.location.href = document.referrer + (anchor ? `#${anchor}` : '');
+} else {
+  console.log('トップページ(仮)に戻ります。');
+  // window.location.href = '/'; // 必要に応じて有効化
+}
+
   </script>
 </body>
 </html>
