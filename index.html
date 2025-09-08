@@ -20,8 +20,8 @@
 		    const anchor = params.get('a');
 		    navigator.clipboard.writeText(text).then(() => {
 				msg.innerText = 'コピーが成功しました';
-				if (num) {window.location.href = `https://memo.zu-ga.net/${num}.html` + (anchor ? `#${anchor}` : '');}
-		        else if (document.referrer) {window.location.href = document.referrer + (anchor ? `#${anchor}` : '');}
+				if (num) {window.location.href = `https://memo.zu-ga.net/${num}.html` + (anchor ? `#${anchor}` : 'renewClipboard');}
+		        else if (document.referrer) {window.location.href = document.referrer + (anchor ? `#${anchor}` : 'renewClipboard');}
 				else {window.location.href = 'https://memo.zu-ga.net';
 				}
 		    }) .catch(err => {console.error("正常にコピーできませんでした。",err);
