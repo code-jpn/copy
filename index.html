@@ -16,7 +16,7 @@
 		function copy(){
 		    const params = new URLSearchParams(window.location.search);
 		    const text = params.get('s');
-		    const num = params.get('n');
+		    const num = Number(params.get('n'));
 		    const anchor = params.get('a');
 		    navigator.clipboard.writeText(text).then(() => {
 				msg.innerText = 'コピーが成功しました';
