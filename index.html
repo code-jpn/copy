@@ -16,11 +16,11 @@
 		function copy(){
 		    const params = new URLSearchParams(window.location.search);
 		    const text = params.get('s');
-		    const url = params.get('u');
+		    const num = params.get('n');
 		    const anchor = params.get('a');
 		    navigator.clipboard.writeText(text).then(() => {
 				msg.innerText = 'コピーが成功しました';
-				if (url) {window.location.href = url + (anchor ? `#${anchor}` : '');}
+				if (num) {window.location.href = `https://memo.zu-ga.net/${num}.html` + (anchor ? `#${anchor}` : '');}
 		        else if (document.referrer) {window.location.href = document.referrer + (anchor ? `#${anchor}` : '');}
 				else {window.location.href = 'https://memo.zu-ga.net';
 				}
