@@ -15,13 +15,11 @@
 		    const text = params.get('s');
 		    const anchor = params.get('a');
 		    navigator.clipboard.writeText(text).then(() => {
-		        if (document.referrer) {
-		          window.location.href = document.referrer + (anchor ? `#${anchor}` : '');
-		        } else {
-					// window.location.href = 'https://memo.zu-ga.net';
+		        if (document.referrer) {window.location.href = document.referrer + (anchor ? `#${anchor}` : '');}
+				else {// window.location.href = 'https://memo.zu-ga.net';
 				}
-		      }) .catch(err => {// window.location.href = 'https://memo.zu-ga.net';
-			  });
+		    }) .catch(err => {// window.location.href = 'https://memo.zu-ga.net';
+		    });
 		}
      </script>
 </body>
