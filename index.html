@@ -17,7 +17,7 @@
 		    const text = params.get('s');
 		    const anchor = params.get('a');
 		    navigator.clipboard.writeText(text).then(() => {
-				msg.innerText = 'コピーしました';
+				msg.innerText = 'コピーが成功しました';
 		        if (document.referrer) {window.location.href = document.referrer + (anchor ? `#${anchor}` : '');}
 				else {window.location.href = 'https://google.com' //'https://memo.zu-ga.net';
 				}
