@@ -7,7 +7,9 @@
 <body>
 	<center>画面をタップorクリック</center>
 	<script>
-document.addEventListener('click',copy)
+document.addEventListener('click',copy);
+document.addEventListener('keyDown',copy);
+document.addEventListener('touchstart',copy);
 function copy(){
     const params = new URLSearchParams(window.location.search);
     const text = params.get('s');
