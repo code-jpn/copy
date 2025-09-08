@@ -18,10 +18,12 @@
           window.location.href = document.referrer + (anchor ? `#${anchor}` : '');
         } else {
           console.log('トップページ(仮)に戻ります。');
+		  // window.location.href = ''
         }
       })
       .catch(err => {
         console.error('コピー失敗:', err);
+		// window.location.href = ''
       });
   });
   </script>
