@@ -6,23 +6,23 @@
 </head>
 <body>
 	<center>画面をタップorクリックしてコピー</center>
-	<script>
-document.addEventListener('click',copy);
-document.addEventListener('keydown',copy);
-document.addEventListener('touchstart',copy);
-function copy(){
-    const params = new URLSearchParams(window.location.search);
-    const text = params.get('s');
-    const anchor = params.get('a');
-    navigator.clipboard.writeText(text).then(() => {
-        if (document.referrer) {
-          window.location.href = document.referrer + (anchor ? `#${anchor}` : '');
-        } else {
-			// window.location.href = 'https://memo.zu-ga.net';
+    <script>
+		document.addEventListener('click',copy);
+		document.addEventListener('keydown',copy);
+		document.addEventListener('touchstart',copy);
+		function copy(){
+		    const params = new URLSearchParams(window.location.search);
+		    const text = params.get('s');
+		    const anchor = params.get('a');
+		    navigator.clipboard.writeText(text).then(() => {
+		        if (document.referrer) {
+		          window.location.href = document.referrer + (anchor ? `#${anchor}` : '');
+		        } else {
+					// window.location.href = 'https://memo.zu-ga.net';
+				}
+		      }) .catch(err => {// window.location.href = 'https://memo.zu-ga.net';
+			  });
 		}
-      }) .catch(err => {// window.location.href = 'https://memo.zu-ga.net';
-	  });
-}
-  </script>
+     </script>
 </body>
 </html>
