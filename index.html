@@ -5,53 +5,25 @@
 	<title>コピーが完了しました</title>
 </head>
 <body>
-  <div></div>
-  
-const params = new URLSearchParams(window.location.search);
-const text = params.get('s');
-const anchor = params.get('a');
+　<script>
+ if (confirm('テキストをコピーして前のページに戻りますか？')) {
+    const params = new URLSearchParams(window.location.search);
+    const text = params.get('s');
+    const anchor = params.get('a');
 
-if (text) {
-  navigator.clipboard.writeText(text).then(() => {
-    console.log('コピー成功:', text);
-  }).catch(err => {
-    console.error('コピー失敗:', err);
-  });
-} else {
-  console.warn('コピーするテキストがを指定してください');
-}
-
-if (document.referrer) {
-  window.location.href = document.referrer + (anchor ? `#${anchor}` : '');
-} else {
-  console.log('トップページ(仮)に戻ります。');
-  // window.location.href = '/'; // 必要に応じて有効化
-}
-<script>
-window.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const text = params.get('s');
-  const anchor = params.get('a');
-
-  if (text) {
     navigator.clipboard.writeText(text)
       .then(() => {
-        console.log('自動コピー成功:', text);
-        // リダイレクト処理
+        console.log('コピー成功:', text);
         if (document.referrer) {
           window.location.href = document.referrer + (anchor ? `#${anchor}` : '');
         } else {
           console.log('トップページ(仮)に戻ります。');
-          // window.location.href = '/';
         }
       })
       .catch(err => {
-        console.error('自動コピー失敗:', err);
+        console.error('コピー失敗:', err);
       });
-  } else {
-    console.warn('コピーするテキストが指定されていません');
   }
-});
   </script>
 </body>
 </html>
