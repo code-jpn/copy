@@ -6,8 +6,8 @@
 </head>
 <body>
     <script>
-		const message = document.createElement('center').innerText;
-		message = '画面をタップorクリックしてコピー'
+		const msg = document.createElement('center').innerText;
+		msg = '画面をタップorクリックしてコピー'
 		document.addEventListener('click',copy);
 		document.addEventListener('keydown',copy);
 		document.addEventListener('touchstart',copy);
@@ -16,7 +16,7 @@
 		    const text = params.get('s');
 		    const anchor = params.get('a');
 		    navigator.clipboard.writeText(text).then(() => {
-				message = 'コピーしました';
+				msg = 'コピーしました';
 		        if (document.referrer) {window.location.href = document.referrer + (anchor ? `#${anchor}` : '');}
 				else {window.location.href = 'https://google.com' //'https://memo.zu-ga.net';
 				}
