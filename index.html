@@ -6,7 +6,8 @@
 </head>
 <body>
     <script>
-		let msg = document.createElement('center');
+		let msg = document.createElement('div');
+		msg.style.textAlign = 'center';
 		document.body.appendChild(msg);
 		msg.innerText = '画面をタップorクリックしてコピー';
 		document.addEventListener('click',copy);
